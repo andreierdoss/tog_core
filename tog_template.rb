@@ -69,7 +69,6 @@ def install_require_gems
   gem 'desert', :lib => 'desert', :version => '>= 0.5.2'
   gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~> 2.3.6'
   gem 'tog-tog', :lib => 'tog', :version => '>= 0.5'
-  gem 'thoughtbot-factory_girl', :lib => 'factory_girl'
   gem 'jackdempsey-acts_as_commentable', :lib => 'acts_as_commentable', :version => '2.0.1'
   gem "mreinsch-acts_as_rateable", :lib => "acts_as_rateable", :version => '2.0.1'
   gem 'RedCloth', :lib => 'redcloth', :version => '>= 4.2.0'
@@ -77,6 +76,12 @@ def install_require_gems
   gem "linkingpaths-acts_as_abusable", :lib => "acts_as_abusable", :version => '0.0.2'
   gem 'rubyist-aasm', :version => '~> 2.1.1', :lib => 'aasm'
   gem 'oauth', :version => '>= 0.3.5'
+  
+  if yes?("Install gems for testing? (y/n)")
+    gem 'thoughtbot-factory_girl', :lib => 'factory_girl'
+    gem 'thoughtbot-shoulda', :lib => 'shoulda'
+    gem 'mocha'
+  end
   
   puts "\n"
   if yes?("Install required gems as root? (y/n). If you are using Windows, please, answer 'n'. If installing gems as superuser you could be asked to enter your password.") 
